@@ -1,3 +1,5 @@
+const sanitize = require('sanitize-html');
+
 const PHONE_REGEX = /^\+[0-9]{2} [0-9]{2} [0-9]{6,}$/;
 
 const logger = {
@@ -19,4 +21,8 @@ module.exports = {
   logger,
   ERROR,
   SUCCESS,
+  sanitize: (t) => sanitize(t, {
+    allowedTags: [],
+    allowedAttributes: {},
+  }),
 };
